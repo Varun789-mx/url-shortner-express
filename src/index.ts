@@ -4,14 +4,17 @@ import { prisma } from "../lib/db";
 import { nanoid } from "nanoid";
 import { uptime } from "node:process";
 import { time } from "node:console";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
+
 const port = process.env.PORT || 5000;
 
+app.use(cors());
 app.use(express.json());
-app.get("api/:code", async (req, res) => {
+app.get("/:code", async (req, res) => {
   const code = req.params.code;
   try {
     const result = await prisma.link.findFirst({
@@ -53,7 +56,7 @@ app.get("api/:code", async (req, res) => {
   }
 });
 
-app.post("api/create", async (req, res) => {
+app.post("/api/create", async (req, res) => {
   const Data = await req.body.original_url;
   if (!Data) {
     return res.status(400).json({
