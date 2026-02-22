@@ -14,15 +14,18 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String
+  id     Int     @id @default(autoincrement())
+  userId String  @unique
+  Link   Link[]
 }
 
+
 model Link {
-  id           Int      @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   original_url String
   short_url    String
-  clicks       Int
-  timeStamp    DateTime @default(now())
+  clicks       Int       @default(0)
+  timeStamp    DateTime  @default(now())
+  authorId     String
+  author       User     @relation(fields: [authorId],references: [userId])
 }
