@@ -15,7 +15,7 @@
     "build": "bun build src/index.ts --outdir dist --target bun",
     "migrate:dev": "bun prisma migrate dev",
     "migrate:prod": "bun prisma migrate deploy",
-    "start": "bun run dist/index.js",
+    "start": "bun run dist/src/index.js",
     "start:prod": "bun prisma migrate deploy && bun run dist/index.js"
   },
   "peerDependencies": {
