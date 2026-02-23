@@ -34,7 +34,7 @@ router.post("/create", async (req, res) => {
         return res.status(201).json({
             message: "Short URL created successfully",
             original_url: result.original_url,
-            short_url: `${process.env.MAIN_URL}:${process.env.PORT}/${result.short_url}`,
+            short_url: `${process.env.MAIN_URL}/${result.short_url}`,
         });
     } catch (error) {
         console.log("Error occured while creating", error);
