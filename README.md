@@ -31,7 +31,7 @@ The server-side engine behind the URL shortener. Built with **Node.js**, **Expre
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/your-org/shrinkly-backend.git
+git clone https://github.com/varun789-mx/shrinkly-backend.git
 cd shrinkly-backend
 ```
 
