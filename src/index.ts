@@ -59,7 +59,7 @@ app.use(async (req, res, next) => {
   }
 })
 app.use('/api', CreateRoute);
-app.get("/health", async (req, res) => {
+app.get("/api/health", async (req, res) => {
   try {
     const healthCheck = {
       uptime: uptime(),
